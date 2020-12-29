@@ -12,7 +12,7 @@ function shortcut(fName , Sname) {
    return fCahr+SChar
  }
 
-console.log(shortcut('Amnesty', 'International'))
+console.log(shortcut('Amnesty', 'International'));
 
 //------------------------------------------------------------------------------
 
@@ -31,25 +31,73 @@ function firstChar(name) {
     return fChar
 }
  
-console.log(firstChar(' Jurassic Parks '))
+console.log(firstChar(' Jurassic Parks '));
 
 //------------------------------------------------------------------------------
 
 /*
 String: indexOf()
 
-Write a function firstChar, which returns the first character that is not a space when a string is passed.
+Write a function indexOfIgnoreCase taking two strings and determining the first occurrence of the second string in the first string. 
+    The function should be case insensitive.
+Note: indexOf returns -1 if the search string does not occur in the calling string. The indexOf method is also case sensitive.
 
-Example: firstChar(' Jurassic Parks ') should return 'J'.
+Example: indexOfIgnoreCase('bit','it') and indexOfIgnoreCase('bit','IT') should return 1.
 
 */
 
-function firstChar(name) {
-    let clearName = name.trim();
-    let fChar = clearName.charAt(0);
-    return fChar
+function indexOfIgnoreCase (text, chars) {
+    let textLower = text.toLowerCase();
+    let CharsLower = chars.toLowerCase();
+    let charsIndex = textLower.indexOf(CharsLower);
+    return charsIndex;
+
 }
  
-console.log(firstChar(' Jurassic Parks '))
+console.log(indexOfIgnoreCase('bit','IT'));
+
+//------------------------------------------------------------------------------
+
+/*
+String: indexOf() with from index
+
+Write a function secondIndexOf, taking two strings and determining the second occurrence of the second string in the first string. 
+If the search string does not occur twice, -1 should be returned.
+
+Example: secondIndexOf('White Rabbit', 'it') should return 10.
+
+*/
+
+function secondIndexOf (text, chars) {
+    let textLower = text.toLowerCase();
+    let CharsLower = chars.toLowerCase();
+    let charsIndex = textLower.indexOf(CharsLower);
+    let secCharsIndex = textLower.indexOf(CharsLower, charsIndex + 1);
+    return secCharsIndex;
+
+}
+ 
+console.log(secondIndexOf('White Rabbit', 'it'));
+
+//------------------------------------------------------------------------------
+
+/*
+String: substr()
+
+Write a function firstWord, taking a string and returning the first word in that string. 
+The first word are all characters up to the first space.
+
+Example: firstWord('see and stop') should return 'see'.
+
+*/
+
+function firstWord (text) {
+    let firstBlank = text.indexOf(' ');
+    
+    let fWord = text.substr(0, firstBlank);
+    return fWord;
+}
+ 
+console.log(firstWord('Happy New Year'));
 
 //------------------------------------------------------------------------------
