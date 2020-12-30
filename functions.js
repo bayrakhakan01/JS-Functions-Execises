@@ -151,12 +151,4 @@ function normalize(text,change, change2) {
 
 console.log(normalize('30-12-2020','-', '/'));
 
-function abo(text) {
-    for (let i = 0; i < text.length; i++) {
-        text = text.replace('-', '/');        
-    }
-    return text
-    
-}
-console.log(abo('30-12-2020'));
 //------------------------------------------------------------------------------
