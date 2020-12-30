@@ -101,3 +101,62 @@ function firstWord (text) {
 console.log(firstWord('Happy New Year'));
 
 //------------------------------------------------------------------------------
+
+/*
+String: replace()
+
+Write a function normalize, that replaces '-' with '/' in a date string.
+
+Example: normalize('20-05-2017','-', '/') should return '20/05/2017'
+         
+*/
+// long way
+
+function fnormalize(text,change, change2) {
+    let x = 0;
+    let y = 0;
+    let firstIndex = text.indexOf(change);
+    console.log(firstIndex);
+    if (firstIndex != -1) {
+       
+        for (let i = firstIndex; i < text.length; i++) {
+        
+            res= text.indexOf(change, i+1);
+            if (res!== y ) {
+                x++
+            } //else if (res === y){ break;}
+            y = res
+        }
+        
+    }
+    for (let k = 0; k < x+1 ; k++) {
+       text = text.replace(change, change2);
+        
+    }
+    return text
+
+}
+
+ 
+console.log(fnormalize('29-12-2020','-', '/'));
+
+//short way
+
+function normalize(text,change, change2) {
+    for (let i = 0; i < text.length; i++) {
+        text = text.replace(change, change2);        
+    }
+    return text
+}
+
+console.log(normalize('30-12-2020','-', '/'));
+
+function abo(text) {
+    for (let i = 0; i < text.length; i++) {
+        text = text.replace('-', '/');        
+    }
+    return text
+    
+}
+console.log(abo('30-12-2020'));
+//------------------------------------------------------------------------------
