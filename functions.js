@@ -152,3 +152,198 @@ function normalize(text,change, change2) {
 console.log(normalize('30-12-2020','-', '/'));
 
 //------------------------------------------------------------------------------
+
+/*
+Fahrenheit
+Write a function toFahrenheit that converts a temperature from Celsius to Fahrenheit.
+
+Example: toFahrenheit(0) should return 32.
+Hint:
+If C is the temperature in Celsius and F the temperature in Fahrenheit, the following applies: F = 1.8 * C + 32.
+*/
+
+function toFahrenheit (num1) {
+    return 1.8*num1 + 32
+}
+console.log( toFahrenheit (5));
+
+//------------------------------------------------------------------------------\
+
+function mean (num1, num2) { 
+    return (num1 + num2) / 2;
+}
+
+console.log( mean (2, 3));
+//------------------------------------------------------------------------------\
+
+/*
+Math
+
+Write a function hypotenuse that calculates the length of the hypotenuse of a right triangle. 
+The length of the two legs is passed to the function. 
+Tip: In a right triangle the Pythagorean theorem is valid. 
+If a and b are the lengths of the two legs and h is the length of the hypotenuse, 
+the following is true: a² + b² = h². Since 3² + 4² = 5² applies, hypotenuse(3, 4) should return 5. 
+*/
+function hypotenuse (a, b) {
+    let h = Math.pow(a,2) + Math.pow(b,2);
+
+    return Math.sqrt(h);  
+}
+
+console.log(hypotenuse (3, 4));
+
+/*
+Math.min() and Math.max():
+
+Write a function midrange, that calculates the midrange of 3 numbers. 
+The midrange is the mean of the smallest and largest number.
+
+Example: midrange(3, 9, 1) should return (9+1)/2 = 5.
+*/
+function midrange (a, b,c) {
+    let min = Math.min(a, b,c);
+    let max = Math.max(a, b,c);
+    let mid = (max+min)/2
+
+
+    return mid;  
+}
+
+console.log(midrange (3, 9,5));
+
+/*
+Math.PI  and Math.E
+Note: Besides functions Math offers some mathematical constants. 
+Math.PI gives π (roughly 3.14) and Math.E gives Euler's number e (roughly 2.71).
+
+Write a function area that calculates the area of a circle. The function is given the radius of the circle.
+
+Example: area(1) should return π and area(2) should return 4 * π.
+*/
+function area(r) {
+    return Math.PI* r**2;
+}
+
+console.log(area(2));
+
+/*
+Math.round(), Math.floor() and Math.ceil() functions.
+
+Math.round() rounds a number to the nearest integer, 
+Math.floor() rounds a number downwards to the nearest integer and
+Math.ceil() rounds a number upwards to the nearest integer. 
+Therefore, the variables a to d all get the value 5.
+
+Write a function round100 that rounds a number to the nearest hundred.
+
+Example: round100(1749) should return 1700 and round100(856.12) should return 900.
+*/
+
+let a = Math.round(5.49);
+let b = Math.round(4.5);
+let c = Math.floor(5.99);
+let d = Math.ceil(4.01);
+
+console.log(a, b, c, d );
+
+function round100 (num1) {
+    return Math.round(num1/100)*100;
+}
+/*
+Math.random()
+Write a function dice that returns like a dice a random number between 1 and 6.
+*/
+// easy one
+function dice () { // min and max included 
+    return Math.floor(Math.random() * 6) + 1 ;
+}
+
+// complex one
+function randomIntFromInterval(min, max) { // min and max included 
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+console.log(randomIntFromInterval(20, 30));
+
+//------------------------------------------------------------------------------
+
+/*
+parseInt
+Write a function add that takes a string with a summation task and returns its result as a number. Two natural numbers should be added. 
+The summation task is a string of the form '102+17'.
+
+Example: add('102+17') should return 119.
+*/
+
+let n1 = parseInt('19', 10);
+let n2 = parseInt('+19', 10);
+let n3 = parseInt('-19', 10);
+let n4 = parseInt('19 Grad', 10);
+let n5 = parseInt('19.1', 10);
+let n6 = parseInt('019', 10);
+let n7 = parseInt(' 19', 10);
+let n11 = parseInt('text', 10);
+let n12 = parseInt('No. 10', 10);
+console.log(n1,n2,n3,n4,n5,n6,n7,n11,n12);
+
+
+function add(note) {
+    let fNum = parseInt(note, 10);
+    let indexPlus  = note.indexOf("+");
+    let nAfterPlus  =parseInt(note.substr(indexPlus +1),10);   
+    return fNum+nAfterPlus;
+}
+console.log(add('102+17'));
+
+/* 
+Boolean
+NAND (Not AND)
+Write a function nand that takes two Boolean values. 
+If both values are true, the result should be false. 
+In the other cases the return should be true.
+
+I.e.: The call nand(true, true) should return false. 
+The calls nand(true, false), nand(false, true) and nand(false, false) should return true.
+*/
+
+function nand(blo1, blo2) {
+    let and =blo1 && blo2
+    return !and
+}
+console.log(nand(true, true));
+
+/* 
+NOR (Not OR)
+Write a function nor that takes two Boolean values. If both values are false, 
+the result should be true. In the other cases the return should be false.
+
+I.e.: The call nor(false, false) should return true. 
+The calls nor(true, false), nor(false, true) and nor(true, true) should return false.
+*/
+function nor(blo1, blo2) {
+    let and =blo1 || blo2
+    return !and
+}
+console.log(nand(false, false));
+/*
+XOR
+Write a function xor that takes two Boolean values. If both values are different, 
+the result should be true. If both values are the same, the result should be false.
+
+I.e.: The calls xor(true, false) and xor(false, true) should return true. 
+The calls xor(true, true) and xor(false, false) should return false.
+*/
+function xor(a, b) {
+    return ( a && !b ) || ( !a && b ) ;
+     
+ }
+console.log(xor(true, true));
+
+function aa(a,s,d) {
+    let aq = a===s
+    let ew = s===d
+    return aq && ew
+    
+}
+console.log(aa(1,1,1));
