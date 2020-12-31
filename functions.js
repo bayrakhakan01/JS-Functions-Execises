@@ -335,15 +335,70 @@ I.e.: The calls xor(true, false) and xor(false, true) should return true.
 The calls xor(true, true) and xor(false, false) should return false.
 */
 function xor(a, b) {
-    return ( a && !b ) || ( !a && b ) ;
-     
+    return ( a && !b ) || ( !a && b ) ;    
  }
 console.log(xor(true, true));
 
-function aa(a,s,d) {
-    let aq = a===s
-    let ew = s===d
-    return aq && ew
-    
+ /**
+ Exercise
+Write a function isEven that checks if a passed number is even. If the given number is even, true should be returned, otherwise false.
+
+Example: isEven(2) should return true and isEven(3) should return false.
+  */
+function isEven(n) {
+    return n %2 === 0
 }
-console.log(aa(1,1,1));
+console.log(isEven(25));
+
+/*
+Strict inequality
+Write a function unequal that checks 3 values for strict inequality. The function should return true if all three parameters are strict unequal. Otherwise false.
+
+Example: unequal(1, 2, 3) should return true and unequal(1, 1, 2) should return false.
+
+*/
+
+function unequal(a, b, c) {
+    return a !== b && b !== c && a !== c  
+}
+console.log(unequal(a, b, c));
+
+/*
+Compare numbers
+Write a function isThreeDigit that checks if a number is greater than or equal to 100 and less than 1000.
+
+Example: isThreeDigit(500) should return true and isThreeDigit(50) should return false.
+*/
+function isThreeDigit(n) {
+    return n >= 100 && n < 1000
+}
+console.log(isThreeDigit(50));
+
+/*
+if
+Write a function equals that checks two values for strict equality. If the two values are equal, the string 'EQUAL' should be returned. If they are unequal, you should get 'UNEQUAL'.
+
+Example: equals(1, 1) should return 'EQUAL' and equals(1, 2) should return 'UNEQUAL'.
+*/
+function equals(num1, num2) {
+    if (num1===num2) {
+        return 'EQUAL'
+    } else {
+        return 'UNEQUAL'
+    }
+
+}
+console.log(equals(1, 1));
+
+function repdigit(n) {
+    let ones = n % 10;
+    console.log(ones);
+    let tens = Math.floor(n / 10);
+    console.log(tens);
+    console.log(n / 10);
+    if (ones === tens) {
+      return 'Repdigit!';
+    }
+    return 'No Repdigit!';
+  }
+  console.log(repdigit(99));
