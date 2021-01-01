@@ -545,6 +545,12 @@ function setWeather() {
   }
 }
 
+/*
+Array: indexOf()
+Write a function add that adds an element to the end of an array. However, the element should only be added if it is not already in the array.
+
+Example: add([1, 2], 3) should return [1, 2, 3] and add([1, 2], 2) should return [1, 2].
+*/
 function adda(anArr, n) {
     let newArr = anArr.indexOf(n)
     console.log(newArr);
@@ -557,3 +563,75 @@ function adda(anArr, n) {
     }
 }
 console.log(adda([1, 2], 3));  
+
+/* 
+Array: concat()
+
+Write a function concatUp that concatenate two arrays. The longer array should be appended to the shorter array. If both arrays are equally long, the second array should be appended to the first array.
+
+Example: concatUp([1, 2], [3]) should return [3, 1, 2] and concatUp([5, 7], [6, 8]) should return [5, 7, 6, 8].
+*/
+function concatUp (anArr, n){
+    if (anArr.length <= n.length) {
+        return anArr.concat(n);
+    } else {
+        return n.concat(anArr);
+    }
+    
+}
+console.log(concatUp ([5, 7], [6, 8]) );
+
+
+/* 
+Array: slice()
+
+The first parameter specifies the start index (included) and 
+the second parameter specifies the end index (excluded). 
+The original array will not be modified.
+
+Write a function halve that copies the first half of an array. With an odd number of array elements, the middle element should belong to the first half.
+
+Example: halve([1, 2, 3, 4]) should return [1, 2].
+*/
+function halve(anArr) {
+    let a = Math.round((anArr.length)/2);
+    return anArr.slice(0, a);
+}
+console.log(halve([1, 2, 3, 4, 5]));
+
+let abcd = ['a', 'b', 'c', 'd'];
+let ab = abcd.slice(0, 2);
+let bc = abcd.slice(1, 3);
+let bcd = abcd.slice(1, 4);
+
+console.log(ab, bc, bcd );
+
+
+/*
+Array: join()
+
+Write a function list that takes an array of words and returns a string by concatenating the words in the array, separated by commas and - the last word - by an 'and'. An empty array should return an empty string.
+
+Example: list(['Huey', 'Dewey', 'Louie']) should return 'Huey, Dewey and Louie'.
+*/ 
+function list(anArry) {
+    if (anArry.length === 0) {
+        return '';
+    } else if (anArry.length === 1){
+        return anArry[0]    
+    } else {
+        let newArr = anArry.slice(0, anArry.length-1);
+        let lArr = anArry[anArry.length-1]
+        return newArr.join(', ') + ' and ' + lArr;
+
+    }
+}
+console.log(list(['Huey', 'Dewey', 'Louie']) );
+
+function hello(a) {
+    if (a) {
+       return 'Hello ' + a + '!';
+    }
+    return 'Hello world!'
+}
+console.log(hello("hakan"));
