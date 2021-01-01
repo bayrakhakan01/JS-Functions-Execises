@@ -390,15 +390,170 @@ function equals(num1, num2) {
 }
 console.log(equals(1, 1));
 
+/* 
+Two returns
+Write a function repdigit that determines whether a two-digit decimal is a repdigit or not. If the decimal is a repdigit, 'Repdigit!' should be returned, otherwise 'No Repdigit!'.
+
+Example: repdigit(22) should return 'Repdigit!' and repdigit(23) should return 'No Repdigit!'.
+*/
+
 function repdigit(n) {
     let ones = n % 10;
-    console.log(ones);
     let tens = Math.floor(n / 10);
-    console.log(tens);
-    console.log(n / 10);
     if (ones === tens) {
       return 'Repdigit!';
     }
     return 'No Repdigit!';
+}
+console.log(repdigit(99));
+
+/* 
+if...else
+
+Write a function addWithSurcharge that adds two amounts with surcharge. For each amount less than or equal to 10, the surcharge is 1. For each amount greater than 10, the surcharge is 2.
+
+Example: addWithSurcharge(5, 15) should return 23.
+*/
+
+function addWithSurcharge(a, b) {
+
+let surcharge = 0;
+
+if (a <= 10) {
+    surcharge = surcharge + 1;
+} else {
+    surcharge = surcharge + 2;
+}
+
+if (b <= 10) {
+    surcharge = surcharge + 1;
+} else {
+    surcharge = surcharge + 2;
+}
+
+return a + b + surcharge;
+}
+
+/*
+else if
+Write a function addWithSurcharge that adds two amounts with surcharge. For each amount less than or equal to 10, the surcharge is 1. For each amount greater than 10 and less than or equal to 20, the surcharge is 2. For each amount greater than 20, the surcharge is 3.
+
+Example: addWithSurcharge(10, 30) should return 44.
+*/
+function addWithSurcharge(a, b) {
+
+let surcharge = 0;
+
+if (a <= 10) {
+    surcharge = surcharge + 1;
+} else if (a >= 10 && a<=20) {
+    surcharge = surcharge + 2;
+} else {
+    surcharge = surcharge + 3;
+}
+
+if (b <= 10) {
+    surcharge = surcharge + 1;
+} else if (b >= 10 && b <= 20) {
+    surcharge = surcharge + 2;
+} else {
+    surcharge = surcharge + 3;
+}
+
+return a + b + surcharge;
+}
+/*
+Arrays
+Write a function toArray that takes 2 values and returns these values in an array.
+
+Example: toArray(5, 9) should return the array [5, 9].
+*/
+function toArray(a, b) {
+    return [a , b];
+      
+}
+
+/*
+Get array elements
+Write a function getFirstElement that takes an array and returns the first element of the array.
+
+Example: getFirstElement([1, 2]) should return 1.
+*/
+function getFirstElement ([a, b]) {
+    let getArray = [a, b]  
+    return getArray[0]
+}
+
+/* 
+Set array elements
+Write a function setFirstElement that takes an array and an arbitrary variable. The variable should be inserted as the first element in the array. The array should be returned.
+
+Example: setFirstElement([1, 2], 3) should return [3, 2].
+
+*/
+function setFirstElement(anArray, firstElement) {
+    anArray[0] = firstElement;
+    return anArray;
+}
+
+/*
+Array: length
+Write a function getLastElement that takes an array and returns the last element of the array.
+
+Example: getLastElement([1, 2]) should return 2.
+*/
+function getLastElement(anArray) {
+    let lastIndex = anArray.length - 1;
+    return anArray[lastIndex];
+}
+/*
+Array: shift() and push()
+Write a function rotate that rotates the elements of an array. All elements should be moved one position to the left. The 0th element should be placed at the end of the array. The rotated array should be returned.
+
+Example: rotate(['a', 'b', 'c']) should return ['b', 'c', 'a'].
+*/ 
+function rotate(anArray) {
+    for (let i = 0; i < anArray.length; i++) {
+        const element = anArray.shift();
+        anArray.push(element);
+    }
+    return anArray;
+}
+console.log(rotate(['a', 'b', 'c', "e"]));
+
+const select = document.querySelector('select');
+const para = document.querySelector('p');
+
+select.addEventListener('change', setWeather);
+
+/* 
+else if
+*/
+function setWeather() {
+  const choice = select.value;
+
+  if (choice === 'sunny') {
+    para.textContent = 'It is nice and sunny outside today. Wear shorts! Go to the beach, or the park, and get an ice cream.';
+  } else if (choice === 'rainy') {
+    para.textContent = 'Rain is falling outside; take a rain coat and an umbrella, and don\'t stay out for too long.';
+  } else if (choice === 'snowing') {
+    para.textContent = 'The snow is coming down — it is freezing! Best to stay in with a cup of hot chocolate, or go build a snowman.';
+  } else if (choice === 'overcast') {
+    para.textContent = 'It isn\'t raining, but the sky is grey and gloomy; it could turn any minute, so take a rain coat just in case.';
+  } else {
+    para.textContent = '';
   }
-  console.log(repdigit(99));
+}
+
+function adda(anArr, n) {
+    let newArr = anArr.indexOf(n)
+    console.log(newArr);
+    if (newArr === -1) {
+       //anArr.push(n);
+     
+        return [...anArr, n]
+    } else {
+        return anArr
+    }
+}
+console.log(adda([1, 2], 3));  
