@@ -628,6 +628,12 @@ function list(anArry) {
 }
 console.log(list(['Huey', 'Dewey', 'Louie']) );
 
+/*
+undefined
+Write a function hello having one parameter and returning 'Hello <parameter>!'. If hello is called without an argument, 'Hello world!' should be returned.
+
+Example: hello('Nala') should return 'Hello Nala!'.
+ */
 function hello(a) {
     if (a) {
        return 'Hello ' + a + '!';
@@ -635,3 +641,231 @@ function hello(a) {
     return 'Hello world!'
 }
 console.log(hello("hakan"));
+
+/*
+for loop
+Write a function addTo that accepts a number as a parameter and adds all natural numbers smaller or equal than the parameter. The result is to be returned.
+
+Example: addTo(3) should return 1+2+3 = 6.
+*/
+
+function addTo(m) {
+    let sum = 0;
+    for (let i = 0; i <= m; i++) {
+        sum = sum + i;      
+    }
+    return sum; 
+}
+console.log(addTo(3));
+
+
+/*
+Factorial
+Write a function factorial that calculates the factorial of a positive integer.
+
+Example: factorial(3) should return 6.
+*/
+function factorial(n) {
+    let result = 1;
+    for (let i = 1; i <= n; i++) {
+      result = result * i;
+    }
+    return result;
+}
+console.log(factorial(3));
+
+/*
+Loops and arrays
+Write a function mean that accepts an array filled with numbers and returns the arithmetic mean of those numbers.
+
+Example: mean([1, 2, 3]) should return (1+2+3)/3 = 2. 
+*/
+  function meanTo(arr) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        sum = sum + arr[i];      
+    }
+    return sum/arr.length; 
+}
+console.log(meanTo([1, 2, 3]));
+
+/*
+while loop
+Write a function spaces that takes a natural number n and returns a string of n spaces.
+
+Example: spaces(1) should return ' '.
+*/
+
+function spaces(n) {
+    let mySpaces = '';
+    if(n === 0) { return '' }
+    while (n-- >0) {
+        mySpaces += '';
+          
+    }
+    return mySpaces
+}
+console.log(spaces(5));
+document.write(spaces(5));
+
+/*
+do...while loop
+Write a function lcm that takes two natural numbers and calculates their least common multiple (lcm). The lcm of two natural numbers a und b is the smallest natural number that is divisible by a and b.
+
+Example: lcm(4, 6) should return 12. (EKOK)
+*/
+
+function lcm(a,b) {
+    let theLCM = 0;
+    let remainderA;
+    let remainderB;
+
+    do {
+        theLCM ++;
+        remainderA = theLCM % a;
+        remainderB = theLCM % b;
+        
+    } while (remainderA !== 0 || remainderB !== 0);
+    return theLCM;
+}
+console.log(lcm(9,8));
+document.write(lcm(9,8));
+
+/*
+greatest common divisor (gcd).
+The Math.abs() function returns the absolute value of a number,(Mutlak degeri: bir sayinin sifira iolan uzakligi)
+*/
+function gcd(x, y) {
+    if ((typeof x !== 'number') || (typeof y !== 'number')) 
+      return false;
+    x = Math.abs(x);
+    y = Math.abs(y);
+    while(y) {
+      var t = y;
+      y = x % y;
+      x = t;
+    }
+    return x;
+}
+  
+console.log(gcd(12, 13));
+console.log(gcd(9, 3));
+
+
+/*
+Nested loops
+Write a function sum that calculates the sum of all elements of a two-dimensional array.
+
+Example: sum([[1, 2], [3]]) should return 6.
+*/
+function summ(arr) {
+    let sumArr = 0;
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr[i].length; j++) {
+            sumArr += arr[i][j];
+        }
+    }
+    return sumArr
+}
+console.log(summ([[1, 2], [3]]));
+
+/*
+NaN
+
+Write a function parseFirstInt that takes a string and returns the first integer present in the string. If the string does not contain an integer, you should get NaN.
+
+Example: parseFirstInt('No. 10') should return 10 and parseFirstInt('Babylon') should return NaN.
+*/
+
+function parseFirstInt(input) {
+
+let inputToParse = input;
+
+for (let i = 0; i < input.length; i++) {
+    let firstInt = parseInt(inputToParse);
+    if (!Number.isNaN(firstInt)) {
+    return firstInt;
+    }
+    inputToParse = inputToParse.substr(1);
+}
+
+return NaN;
+}
+console.log(parseFirstInt('Li is 22 years old.') );
+
+
+/*
+String: split()
+Write a function addsum that takes a string with a summation task and returns its result as a number. 
+A finite number of natural numbers should be added. The summation task is a string of the form '1+19+...+281'.
+
+Example: addsum('7+12+100') should return 119.
+*/
+function addsum(n) {
+    let sum = 0;
+    let parts = n.split('+');
+    console.log(parts.length);
+    
+    for (let i = 0; i < parts.length; i++) {
+        
+        let num= parseInt(parts[i]);
+        sum += num;
+    }
+    return sum
+}
+console.log(addsum('7+12+100'));
+
+/*
+Functions call functions
+Write a function sum that takes an array of numbers and returns the sum of these numbers. 
+Write a function mean that takes an array of numbers and returns the average of these numbers. 
+The mean function should use the sum function.
+*/
+function oss(arr) {
+let sum = 0;
+for (let i = 0; i < arr.length; i++) {
+    
+    let num= parseInt(arr[i]);
+    sum += num;
+}
+return sum;
+}
+
+function mean2(arr) {
+    let average = oss(arr) /arr.length;
+
+    return average;
+}
+console.log(mean2([1, 4, 10, 85]));
+
+
+function reverseString(str) {
+    // Step 1. Use the split() method to return a new array
+    let splitString = str.split(""); // let splitString = "hello".split("");
+    // ["h", "e", "l", "l", "o"]
+ 
+    // Step 2. Use the reverse() method to reverse the new created array
+    let reverseArray = splitString.reverse(); // let reverseArray = ["h", "e", "l", "l", "o"].reverse();
+    // ["o", "l", "l", "e", "h"]
+ 
+    // Step 3. Use the join() method to join all elements of the array into a string
+    let joinArray = reverseArray.join(""); // let joinArray = ["o", "l", "l", "e", "h"].join("");
+    // "olleh"
+    
+    //Step 4. Return the reversed string
+    return joinArray;  // "olleh"
+}
+ 
+console.log(reverseString("x"));
+
+function digitSum(n) {
+    let sum = 0;
+    let str = n.toString();
+    console.log(parseInt(str.substring(0, 0)));
+    for (let i = 0; i < str.length; i++) {
+        sum += parseInt(str.substring(i,i+1));
+        
+    }
+    return sum;
+}
+console.log(digitSum(192));
