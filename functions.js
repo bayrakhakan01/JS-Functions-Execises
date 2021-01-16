@@ -35,6 +35,8 @@ console.log(firstChar(' Jurassic Parks '));
 
 //------------------------------------------------------------------------------
 
+
+
 /*
 String: indexOf()
 
@@ -67,6 +69,8 @@ If the search string does not occur twice, -1 should be returned.
 Example: secondIndexOf('White Rabbit', 'it') should return 10.
 
 */
+
+
 
 function secondIndexOf (text, chars) {
     let textLower = text.toLowerCase();
@@ -201,6 +205,7 @@ The midrange is the mean of the smallest and largest number.
 
 Example: midrange(3, 9, 1) should return (9+1)/2 = 5.
 */
+
 function midrange (a, b,c) {
     let min = Math.min(a, b,c);
     let max = Math.max(a, b,c);
@@ -858,14 +863,4 @@ function reverseString(str) {
  
 console.log(reverseString("x"));
 
-function digitSum(n) {
-    let sum = 0;
-    let str = n.toString();
-    console.log(parseInt(str.substring(0, 0)));
-    for (let i = 0; i < str.length; i++) {
-        sum += parseInt(str.substring(i,i+1));
-        
-    }
-    return sum;
-}
-console.log(digitSum(192));
+f
