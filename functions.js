@@ -863,4 +863,14 @@ function reverseString(str) {
  
 console.log(reverseString("x"));
 
-f
+function digitSum(n) {
+    let sum = 0;
+    let str = n.toString();
+    console.log(parseInt(str.substring(0, 0)));
+    for (let i = 0; i < str.length; i++) {
+        sum += parseInt(str.substring(i,i+1));
+        
+    }
+    return sum;
+}
+console.log(digitSum(192));
